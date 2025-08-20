@@ -5,8 +5,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { BetSlipProvider } from "@/contexts/BetSlipContext";
 import { WalletProvider } from "@/contexts/WalletContext";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/AppSidebar";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import GameDetails from "./pages/GameDetails";
@@ -29,8 +27,6 @@ import { useIsMobile } from "@/hooks/use-mobile";
 const queryClient = new QueryClient();
 
 const App = () => {
-  const isMobile = useIsMobile();
-  
   return (
     <QueryClientProvider client={queryClient}>
       <BetSlipProvider>
@@ -39,11 +35,8 @@ const App = () => {
             <Toaster />
             <Sonner />
             <BrowserRouter>
-              <SidebarProvider>
-                <div className="min-h-screen flex w-full">
-                  {/* Sidebar oculto tanto para mobile quanto desktop */}
-                  
-                  <main className="flex-1 min-w-0">
+              <div className="min-h-screen flex w-full">
+                <main className="flex-1 min-w-0">
                     <Routes>
                       <Route path="/" element={<Index />} />
                       <Route path="/wallet" element={<Wallet />} />
@@ -54,18 +47,23 @@ const App = () => {
                       <Route path="/esports" element={<ESports />} />
                       <Route path="/eventos" element={<Eventos />} />
                       <Route path="/promocoes" element={<Promocoes />} />
+                      <Route path="/promotions" element={<Promocoes />} />
                       <Route path="/populares" element={<Populares />} />
                       <Route path="/notificacoes" element={<Notificacoes />} />
+                      <Route path="/notifications" element={<Notificacoes />} />
                       <Route path="/perfil" element={<Perfil />} />
+                      <Route path="/profile" element={<Perfil />} />
                       <Route path="/proximos-jogos" element={<ProximosJogos />} />
+                      <Route path="/upcoming" element={<ProximosJogos />} />
                       <Route path="/configuracao" element={<Configuracao />} />
+                      <Route path="/settings" element={<Configuracao />} />
                       <Route path="/suporte" element={<Suporte />} />
+                      <Route path="/support" element={<Suporte />} />
                       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                       <Route path="*" element={<NotFound />} />
                     </Routes>
-                  </main>
-                </div>
-              </SidebarProvider>
+                </main>
+              </div>
             </BrowserRouter>
             <BetSlip />
           </TooltipProvider>
