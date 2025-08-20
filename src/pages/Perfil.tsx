@@ -1,5 +1,3 @@
-import Header from "@/components/Header";
-import Navigation from "@/components/Navigation";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -36,10 +34,7 @@ const Perfil = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <Navigation />
-      
+    <div className="min-h-screen bg-background">      
       <main className="container mx-auto px-4 py-6">
         <div className="bg-gradient-to-r from-primary/20 to-primary/10 rounded-lg p-6 mb-6">
           <div className="flex items-center space-x-3">
